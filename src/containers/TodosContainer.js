@@ -37,6 +37,30 @@ class TodosContainer extends React.Component {
         });
     };
 
+    deleteTodo = (todo) => {
+        TodoModel.delete(todo).then((res) => {
+            let todos = this.state.todos.filter((todo) => {
+                return todo._id !== res.data._id;
+            });
+            this.setState({todos});
+        });
+    };
+
+    updateTodo = (todo) => {
+        const isUpdatedTodo = (t) => {
+            return t._id === todo._id;
+        };
+
+        TodoModel.update(todo)
+        .then((res) => {
+            let todos = this.state.todos;
+            todos.find(isUpdatedTodo).body = todo.body;
+            this.setState({
+                todos: todos
+            });
+        });
+    };
+
     render() {
 
         return(
@@ -46,6 +70,8 @@ class TodosContainer extends React.Component {
                 />
                 <TodoList
                     todos={this.state.todos}
+                    updateToDo={this.updateToDo}
+                    deleteTodo={this.deleteTodo}
                 />
             </div>
         );

@@ -6,7 +6,9 @@ const TodoList = (props) => {
         return (
             <TodoCard
                 key={todoObj._id}
-                todo={todoObj} />
+                todo={todoObj}
+                deleteTodo={props.deleteTodo}
+                updateTodo={props.updateTodo} />
         );
     });
 
