@@ -1,7 +1,7 @@
 const TodosContainer = () => {
     return(
         <div className="container">
-            <h1>Todos Container</h1>
+            <h2>Todos Container</h2>
         </div>
     );
 }
