@@ -46,8 +46,8 @@ class TodosContainer extends React.Component {
         });
     };
 
-    updateTodo = (todo) => {
-        const isUpdatedTodo = (t) => {
+    updateTodo = todo => {
+        const isUpdatedTodo = t => {
             return t._id === todo._id;
         };
 
@@ -70,7 +70,7 @@ class TodosContainer extends React.Component {
                 />
                 <TodoList
                     todos={this.state.todos}
-                    updateToDo={this.updateToDo}
+                    updateTodo={this.updateTodo}
                     deleteTodo={this.deleteTodo}
                 />
             </div>
